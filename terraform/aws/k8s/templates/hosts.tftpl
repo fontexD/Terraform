@@ -1,0 +1,5 @@
+[master_firstcontrol_plane]
+%{ for master_node in master_nodes ~}
+${master_node.name} ansible_host=${master_node.ip}
+%{ endfor }
+

@@ -1,0 +1,29 @@
+#cloud-config
+autoinstall:
+  version: 1
+  locale: en_US
+  keyboard:
+    layout: en
+    variant: us
+  network:
+    network:
+      version: 2
+      ethernets:
+        ens192:
+          dhcp4: true
+  storage:
+    layout:
+      name: lvm
+  identity:
+    hostname: ubuntu-packer
+    username: master
+    password: $6$4ra5IlNAXjkGEGrg$/OWfjKwqeqw3MrOi0LtPH3R.ChodWR3tMRC/NdCx3dV0kM0AnJlTENE22kEQGJX8Jc93aA8gG.LH.mU5ppQAH/
+  ssh:
+    install-server: yes
+    allow-pw: true
+    authorized-keys: 
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDOeuRbYa1ca4x5dXUmkgqUD/d8kH/pJ6hfUlJHmddcpXT398PYKcD46cuVBMvEIxd23v3yH2LRAGGC/ICI4y5kxKm4neITyZHMMn8/xHLxTj+PQcxUcD8eydyxqMpuhfm2QKStOEoNzK2KHhc0qGVWgcjyl3F+2Fy+4pgMewH0SRPSNxoXyCGyp2rkCtdXYlj6ozD3Vkd1AYubZlPDW+gM2HzM5pXETuhQCNdyNhhg/x6UWbBHbvq0JmOePOjQcpnt8WBd3KJ+Ic6dHbXhGhoO1+vRoFLNvojGih2xZXQFl1Jjl4UPvCDT2wPCRVStK1RfzO+2FxNrPlqMuCjoXVUSQQ/af3bu23Sw9kiOdSV1D0gzdfl6Ke7mFsUeyaVkB48TGTZ3DTmpp06vEj1XQBzCBA1T5SCmpCKwOti2ururZepKpOnbtbSRf4F2l1KBqoM5NmAOyF0SRwQYEggE6tHXDHmEdbktsJ7e/QHgVLXMxn78Yy1KxZy1a4Bw+WTOkEU= neon_laptop@neonlaptop
+  user-data:
+    disable_root: false
+  late-commands:
+    - echo 'master' | sudo -S sed -i 's/^%sudo\s\+ALL=(ALL:ALL)\s\+ALL/%sudo ALL=(ALL:ALL) NOPASSWD:ALL/' /etc/sudoers
