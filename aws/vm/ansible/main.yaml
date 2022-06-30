@@ -22,7 +22,8 @@
       path: /etc/haproxy/haproxy.cfg
       state: absent
       regexp: '^\s*$'
-  - name: Enable service httpd and ensure it is not masked
+      
+  - name: Enable service haproxy and ensure it is not masked
     systemd:
       name: haproxy
       enabled: yes
