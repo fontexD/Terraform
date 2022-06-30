@@ -1,0 +1,30 @@
+---
+- hosts: haproxy
+  tasks:
+  
+  - name: Wait until the folder /etc/haproxy is present before continuing
+    become: true
+    wait_for:
+      path: /etc/haproxy
+
+  - name: copying file with playbook
+    become: true 
+    copy:
+      src: ./haproxy.cfg
+      dest: /etc/haproxy/haproxy.cfg
+      owner: haproxy
+      group: haproxy       
+      mode: 0644
+
+  - name: Remove LF lines fom haproxy.cfg
+    become: true 
+    lineinfile:
+      path: /etc/haproxy/haproxy.cfg
+      state: absent
+      regexp: '^\s*$'
+
+  - name: Restart service haproxy
+    become: true 
+    systemd:
+      name: haproxy
+      state: restarted

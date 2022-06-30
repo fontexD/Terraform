@@ -1,0 +1,4 @@
+[haproxy]
+%{ for index, ip in haproxy_ip ~} 
+${haproxy_id[index]} ansible_host=${haproxy_ip[index]} ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/MyKeyPair.pem
+%{endfor}

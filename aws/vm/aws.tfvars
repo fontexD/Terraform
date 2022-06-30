@@ -1,0 +1,7 @@
+region =  "eu-north-1"
+instance_type = "t3.micro"
+instance_key = "MyKeyPair"
+vpc_cidr = "192.168.0.0/16"
+public_subnet_cidr = "192.168.10.0/24"
+private_subnet_cidr = "192.168.20.0/24"
+profile_name = "default"
