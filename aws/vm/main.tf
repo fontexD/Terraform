@@ -182,9 +182,7 @@ resource "aws_instance" "web" {
   key_name              = var.instance_key #ssh key-name in ec2
   subnet_id             = aws_subnet.private_subnet.id #public subnet
   security_groups       = [aws_security_group.sg.id] #security-group for this
-  #cloud-init what to do while creating the vm, some people prefer to use packer insted, which gives you the otption to prebuild a vm-image insted of writing a long 
-  #list of cli-commands to install applications on the vm, but in case of just a simple setup with just an apache web-server no reason to send time
-  #creating a pre-build image and then upload it to aws.
+  #cloud-init what to do while creating the vm
   user_data = <<-EOF
   #!/bin/bash
   sudo apt install apache2 -y
@@ -209,9 +207,7 @@ resource "aws_instance" "haproxy" {
   key_name              = var.instance_key #ssh key-name in ec2
   subnet_id             = aws_subnet.public_subnet.id #public subnet
   security_groups       = [aws_security_group.sg.id] #security-group for this
-  #cloud-init what to do while creating the vm, some people prefer to use packer insted, which gives you the option to prebuild a vm-image insted of writing a long 
-  #list of cli-commands to install applications on the vm, but in case of just a simple setup with just an apache web-server no reason to send time
-  #creating a pre-build image and then upload it to aws.
+  #cloud-init what to do while creating the vm
   user_data = <<-EOF
   #!/bin/bash
   echo "*** Installing haproxy"
