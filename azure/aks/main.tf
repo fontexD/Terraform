@@ -24,8 +24,8 @@ data "azuread_group" "k8sAdminGroup" {
 module "aks" {
   source                                   = "Azure/aks/azurerm"
   resource_group_name                      = azurerm_resource_group.k8s.name
-  client_id                                = "836c55aa-a3e0-42c9-9cc9-aea923b0f9ad"
-  client_secret                            = ".pl8Q~rYDLs3u3dkTG~oEnJ6WZ5VgsW1XapKcdkA"
+  client_id                                = ""
+  client_secret                            = ""
   kubernetes_version                       = "1.23.5"
   orchestrator_version                     = "1.23.5"
   prefix                                   = "prefix"
