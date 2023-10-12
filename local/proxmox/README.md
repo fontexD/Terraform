@@ -63,7 +63,7 @@ Instead of using cluster-wide Administrator rights, follow these steps to set up
 
 To tailor this script for setups other than Kubernetes:
 
-1. **Modify Module Templates**: Update the `source` paths and parameters in the `module` sections to match your desired configuration.
+1. **Modify Module Templates**: Update the parameters in the `module` sections to match your desired configuration.
 2. **Adjust Variables**: Change the `variable` values or introduce new variables as needed.
 
 ## Note:
