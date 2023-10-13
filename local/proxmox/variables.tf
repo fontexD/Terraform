@@ -4,6 +4,12 @@ variable "storage" {
   default     = "local-lvm"
 }
 
+# General variables
+variable "target_node" {
+  description = "name of storage location"
+  default     = "lab02"
+}
+
 # Controller variables
 variable "controller_instance_count" {
   description = "Number of controller instances"
