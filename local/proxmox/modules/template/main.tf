@@ -15,7 +15,7 @@ locals {
 
 resource "proxmox_vm_qemu" "node" {
     name = var.node_name
-    target_node = "server0"
+    target_node = var.target_node
     clone = "ubuntu-template"
     agent = 1
     os_type = "cloud-init"
