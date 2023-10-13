@@ -3,6 +3,11 @@ variable "node_name" {
   type        = string
 }
 
+variable "target_node" {
+  description = "name of the server in proxmox"
+  type        = string
+}
+
 variable "storage" {
   description = "Name of the storage"
   type        = string
